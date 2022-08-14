@@ -23,7 +23,12 @@ jobs:
       # https://github.com/dart-lang/setup-dart/blob/main/README.md
       # - uses: dart-lang/setup-dart@v1
       - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
-
+      
+      - name: flutter
+        uses: subosito/flutter-action@v1
+        with:
+          channel: "stable"
+        
       - name: Install dependencies
         run: flutter pub get
 
@@ -39,12 +44,14 @@ jobs:
       # package:test for this step to succeed. Note that Flutter projects will
       # want to change this to 'flutter test'.
       - name: Run tests
-        run: dart test
-        
+        run: flutter test
+      
+      - run: flutter build apk --debug --split-per-abi
       - name: Push to Releases
         uses: ncipollo/release-action@v1
         with:
           artifacts: 'build/app/outputs/flutter-apk/app.apk'
           tag: v0.0.${{ github.run_number }}
           token: ${{ secrets.TOKEN }}
+      
       
