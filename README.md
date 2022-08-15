@@ -1,6 +1,6 @@
-# pill_reminder_app
+# Pill Reminder App
 
-A pill reminder flutter project.
+![pill reminder show case](https://user-images.githubusercontent.com/51359849/184603262-74cbdde3-2917-463c-b33f-7c4943407509.jpg)
 
 ## Getting Started
 
@@ -18,3 +18,4 @@ flutter pub get
 ```
 flutter run
 ```
+Credit for design https://www.figma.com/@utkinilia
